@@ -1,4 +1,4 @@
-package com.roshanadke.checkit.ui.theme
+package com.roshanadke.checkit.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

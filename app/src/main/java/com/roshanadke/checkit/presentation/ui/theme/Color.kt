@@ -1,4 +1,4 @@
-package com.roshanadke.checkit.ui.theme
+package com.roshanadke.checkit.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
