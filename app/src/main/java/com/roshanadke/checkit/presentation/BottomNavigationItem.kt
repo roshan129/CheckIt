@@ -3,8 +3,10 @@ package com.roshanadke.checkit.presentation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckBox
 import androidx.compose.material.icons.filled.CropSquare
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.CheckBox
 import androidx.compose.material.icons.outlined.CropSquare
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 
 data class BottomNavigationItem(
@@ -24,6 +26,11 @@ fun getBottomNavigationItemList(): List<BottomNavigationItem> {
             "Done",
             Icons.Filled.CheckBox,
             Icons.Outlined.CheckBox,
+        ),
+        BottomNavigationItem(
+            "Settings",
+            Icons.Filled.Settings,
+            Icons.Outlined.Settings,
         ),
     )
 }
