@@ -9,25 +9,25 @@ import com.roshanadke.checkit.domain.model.ToDo
 import com.roshanadke.checkit.presentation.components.ToDoCheckListIem
 
 @Composable
-fun FinishedTasksScreen(
+fun ToDoCheckListScreen(
     modifier: Modifier,
-    finishedTasksList: List<ToDo>,
+    toDoList: List<ToDo>,
     onItemChecked: (isChecked: Boolean, id: Int?) -> Unit
 ) {
-
     Box(
         modifier = modifier
     ) {
 
         LazyColumn {
-            items(finishedTasksList) {
+            items(toDoList) {
                 ToDoCheckListIem(
                     taskItem = it,
                     onItemChecked = onItemChecked
                 )
+
             }
         }
 
     }
-
 }
+

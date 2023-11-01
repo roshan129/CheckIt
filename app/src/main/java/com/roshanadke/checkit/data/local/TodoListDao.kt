@@ -23,4 +23,7 @@ interface TodoListDao {
     @Query("SELECT * FROM ToDoEntity WHERE isCompleted = 1")
     fun getCompletedTodos(): Flow<List<ToDoEntity>>
 
+    @Query("UPDATE ToDoEntity SET isCompleted = :newFieldValue WHERE id = :recordId")
+    fun updateTaskIsCompleteById(recordId: Int, newFieldValue: Boolean)
+
 }

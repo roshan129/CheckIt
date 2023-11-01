@@ -10,6 +10,8 @@ interface ToDoItemsRepository {
 
     suspend fun updateToDoItem(toDoEntity: ToDoEntity)
 
+    suspend fun updateTaskCompleted(id: Int, isCompleted: Boolean)
+
     fun getIncompleteTodos(): Flow<List<ToDo>>
 
     fun getCompletedTodos(): Flow<List<ToDo>>

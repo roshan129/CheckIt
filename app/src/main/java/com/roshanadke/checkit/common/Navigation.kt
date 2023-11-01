@@ -5,7 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.roshanadke.checkit.presentation.Screen
-import com.roshanadke.checkit.presentation.screens.ToDoItemsScreen
+import com.roshanadke.checkit.presentation.screens.MainScreen
 
 @Composable
 fun Navigation() {
@@ -13,7 +13,7 @@ fun Navigation() {
 
     NavHost(navController = navController, startDestination = Screen.ToDoItemsScreen.route) {
         composable(route = Screen.ToDoItemsScreen.route) {
-            ToDoItemsScreen(navController = navController)
+            MainScreen(navController = navController)
         }
 
         composable(

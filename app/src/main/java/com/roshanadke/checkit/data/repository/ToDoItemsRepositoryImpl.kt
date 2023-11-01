@@ -19,6 +19,10 @@ class ToDoItemsRepositoryImpl(
         dao.updateToDo(toDoEntity)
     }
 
+    override suspend fun updateTaskCompleted(id: Int, isCompleted: Boolean) {
+        dao.updateTaskIsCompleteById(id, isCompleted)
+    }
+
     override fun getIncompleteTodos(): Flow<List<ToDo>> = flow {
         dao.getIncompleteTodos().map {
             it.map { toDoEntity ->

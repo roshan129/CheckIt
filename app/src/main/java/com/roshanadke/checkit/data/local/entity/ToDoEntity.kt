@@ -16,6 +16,7 @@ data class ToDoEntity(
 
     fun toToDo(): ToDo {
         return ToDo(
+            id,
             title,
             isCompleted,
             timeInMillis
