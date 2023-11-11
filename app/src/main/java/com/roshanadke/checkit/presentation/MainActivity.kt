@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.roshanadke.checkit.common.Navigation
+import com.roshanadke.checkit.presentation.screens.MainScreen
 import com.roshanadke.checkit.presentation.ui.theme.CheckItTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    Navigation()
+                    MainScreen()
 
                 }
             }

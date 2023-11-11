@@ -1,32 +1,51 @@
 package com.roshanadke.checkit.common
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.roshanadke.checkit.presentation.Screen
+import com.roshanadke.checkit.presentation.BottomNavigationScreens
+import com.roshanadke.checkit.presentation.screens.FinishedTasksScreen
 import com.roshanadke.checkit.presentation.screens.MainScreen
+import com.roshanadke.checkit.presentation.screens.SettingsScreen
+import com.roshanadke.checkit.presentation.screens.ToDoCheckListScreen
 
 @Composable
-fun Navigation() {
-    val navController = rememberNavController()
+fun Navigation(modifier: Modifier, navController: NavHostController) {
 
-    NavHost(navController = navController, startDestination = Screen.ToDoItemsScreen.route) {
-        composable(route = Screen.ToDoItemsScreen.route) {
-            MainScreen(navController = navController)
+    NavHost(
+        navController = navController,
+        startDestination = BottomNavigationScreens.ToDoScreen.route,
+        modifier = modifier
+    ) {
+        composable(route = BottomNavigationScreens.ToDoScreen.route) {
+            ToDoCheckListScreen(
+                modifier = Modifier
+                    .fillMaxSize()
+            )
         }
 
         composable(
-            route = Screen.FinishedTasksScreen.route + "/{id}",
-           /* arguments = listOf(
-                navArgument("id") {
-                    type = NavType.IntType
-                    defaultValue = 0
-                }
-            )*/
-        ) { navBackStackEntry ->
-            val recipeId = navBackStackEntry.arguments?.getInt("id")
-            //RecipeDetailsScreen(recipeId)
+            route = BottomNavigationScreens.DoneScreen.route
+        ) {
+            FinishedTasksScreen(
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+        }
+
+        composable(
+            route = BottomNavigationScreens.SettingsScreen.route
+        ) {
+            SettingsScreen(
+                modifier = Modifier
+                    .fillMaxSize()
+            )
         }
     }
 
