@@ -19,8 +19,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.roshanadke.checkit.domain.model.ToDo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun ToDoCheckListIem(
@@ -41,8 +47,13 @@ fun ToDoCheckListIem(
         ) {
             Spacer(modifier = Modifier.width(16.dp))
             Checkbox(checked = isChecked, onCheckedChange = {
-                isChecked = !isChecked
-                onItemChecked(isChecked, taskItem.id)
+                CoroutineScope(Dispatchers.Main).launch {
+                    isChecked = !isChecked
+                    delay(300L)
+                    onItemChecked(!isChecked, taskItem.id)
+                    isChecked = !isChecked
+                }
+
             })
             Spacer(modifier = Modifier.width(16.dp))
             Text(text = taskItem.title)

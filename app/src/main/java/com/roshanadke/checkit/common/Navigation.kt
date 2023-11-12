@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -14,9 +15,12 @@ import com.roshanadke.checkit.presentation.screens.FinishedTasksScreen
 import com.roshanadke.checkit.presentation.screens.MainScreen
 import com.roshanadke.checkit.presentation.screens.SettingsScreen
 import com.roshanadke.checkit.presentation.screens.ToDoCheckListScreen
+import com.roshanadke.checkit.presentation.viewmodels.ToDoItemsViewModel
 
 @Composable
 fun Navigation(modifier: Modifier, navController: NavHostController) {
+
+    val viewModel: ToDoItemsViewModel = hiltViewModel()
 
     NavHost(
         navController = navController,
@@ -26,7 +30,8 @@ fun Navigation(modifier: Modifier, navController: NavHostController) {
         composable(route = BottomNavigationScreens.ToDoScreen.route) {
             ToDoCheckListScreen(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxSize(),
+                viewModel = viewModel
             )
         }
 
@@ -35,7 +40,8 @@ fun Navigation(modifier: Modifier, navController: NavHostController) {
         ) {
             FinishedTasksScreen(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxSize(),
+                viewModel = viewModel
             )
         }
 
@@ -44,7 +50,7 @@ fun Navigation(modifier: Modifier, navController: NavHostController) {
         ) {
             SettingsScreen(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxSize(),
             )
         }
     }

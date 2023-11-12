@@ -13,3 +13,5 @@ sealed class BottomNavigationScreens(val route: String, @StringRes val resourceI
     object DoneScreen: BottomNavigationScreens("DoneScreen", R.string.done, Icons.Outlined.CheckBox)
     object SettingsScreen: BottomNavigationScreens("SettingsScreen", R.string.settings, Icons.Outlined.Settings)
 }
+
+

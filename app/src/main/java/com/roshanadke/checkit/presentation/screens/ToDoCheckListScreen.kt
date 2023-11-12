@@ -17,7 +17,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun ToDoCheckListScreen(
     modifier: Modifier,
-    viewModel: ToDoItemsViewModel = hiltViewModel(),
+    viewModel: ToDoItemsViewModel,
 ) {
 
     val toDoList by viewModel.toDoList
@@ -25,7 +25,6 @@ fun ToDoCheckListScreen(
     LaunchedEffect(Unit) {
         viewModel.getIncompleteTasksList()
     }
-
 
     Box(
         modifier = modifier

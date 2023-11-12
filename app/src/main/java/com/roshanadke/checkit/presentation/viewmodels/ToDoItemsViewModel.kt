@@ -1,5 +1,6 @@
 package com.roshanadke.checkit.presentation.viewmodels
 
+import android.util.Log
 import android.view.View
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -29,19 +30,16 @@ class ToDoItemsViewModel @Inject constructor(
     val finishedTasksList: State<List<ToDo>> = _finishedTasksList
 
     init {
-        /*val item = ToDoEntity(
-            "Test One",
-            false,
-            System.currentTimeMillis()
-        )
-        val item2 = ToDoEntity(
-            "Test Two",
-            false,
-            System.currentTimeMillis()
-        )
-        viewModelScope.launch {
-            repository.addToDoItem(item)
-            repository.addToDoItem(item2)
+        /*Log.d("TAG", " init called ")
+        for(i in 1..10) {
+            val item = ToDoEntity(
+                "Test $i",
+                false,
+                System.currentTimeMillis()
+            )
+            viewModelScope.launch {
+                repository.addToDoItem(item)
+            }
         }*/
     }
 
