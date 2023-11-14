@@ -7,12 +7,12 @@ import java.text.DateFormat
 
 @Entity
 data class ToDoEntity(
+    @PrimaryKey
+    var id: Int? = null,
     val title: String,
     val isCompleted: Boolean,
     val timeInMillis: Long = System.currentTimeMillis(),
 ) {
-    @PrimaryKey
-    var id: Int? = null
 
     fun toToDo(): ToDo {
         return ToDo(

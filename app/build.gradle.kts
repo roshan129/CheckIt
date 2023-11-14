@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+import org.jetbrains.kotlin.org.fusesource.jansi.AnsiRenderer.test
 
 plugins {
     id("com.android.application")
@@ -46,10 +47,14 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 }
 
@@ -65,7 +70,18 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
+
+
+    //testImplementation("junit:junit:4.13.2")
+
+    //assertion library
+    testImplementation("com.willowtreeapps.assertk:assertk:0.26.1")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.3")
+
+
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
